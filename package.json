@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/felipe-seabra/fever-bot/issues"
   },
-  "homepage": "https://github.com/felipe-seabra/fever-bot#readme"
+  "homepage": "https://github.com/felipe-seabra/fever-bot#readme",
+  "dependencies": {
+    "discord.js": "^14.7.1"
+  }
 }
