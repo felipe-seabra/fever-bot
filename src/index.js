@@ -106,7 +106,7 @@ client.on('ready', () => {
   setBotStatus();
 });
 
-client.on(Events.InteractionCreate, handleCommand);
+// client.on(Events.InteractionCreate, handleCommand);
 
 client.login(TOKEN);
 
@@ -128,16 +128,5 @@ client.on(Events.InteractionCreate, async (interaction) => {
         .reply('Documentação do Discord.js: https://discordjs.guide/#before-you-begin');
     }
   }
-  if (!interaction.isChatInputCommand()) return;
-  const command = interaction.client.commands.get(interaction.commandName);
-  if (!command) {
-    console.error('Comando não encontrado');
-    return;
-  }
-  try {
-    await command.execute(interaction);
-  } catch (error) {
-    console.error(error);
-    await interaction.reply('Houve um erro ao executar esse comando!');
-  }
+  await handleCommand(interaction);
 });
