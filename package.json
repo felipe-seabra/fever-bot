@@ -5,8 +5,7 @@
   "main": "src/index.js",
   "scripts": {
     "start": "node src/index.js",
-    "dev": "nodemon --ignore coverage --inspect=0.0.0.0:9229 src/index.js",
-    "deploy": "node src/deploy-commands.js",
+    "dev": "node src/deploy-commands.js && node src/deploy-interaction.js && nodemon --ignore coverage --inspect=0.0.0.0:9229 src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

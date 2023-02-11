@@ -3,6 +3,7 @@
 /* eslint-disable import/no-dynamic-require */
 /* eslint-disable no-restricted-syntax */
 const { Client, Events, GatewayIntentBits } = require('discord.js');
+
 const dotenv = require('dotenv');
 const fs = require('fs');
 const path = require('path');
@@ -12,6 +13,21 @@ const { TOKEN } = process.env;
 
 const client = new Client({ intents: [GatewayIntentBits.Guilds] });
 client.commands = new Map();
+
+const loadEvents = () => {
+  const eventsPath = path.join(__dirname, 'events');
+  const eventFiles = fs.readdirSync(eventsPath).filter((file) => file.endsWith('.js'));
+
+  for (const file of eventFiles) {
+    const filePath = path.join(eventsPath, file);
+    const event = require(filePath);
+    if (event.once) {
+      client.once(event.name, (...args) => event.execute(...args));
+    } else {
+      client.on(event.name, (...args) => event.execute(...args));
+    }
+  }
+};
 
 const loadCommands = () => {
   const commandsPath = path.join(__dirname, 'commands');
@@ -54,15 +70,14 @@ const handleCommand = async (interaction) => {
   }
 
   const command = client.commands.get(interaction.commandName);
-  const args = interaction.options.getString('input');
-  console.log(interaction.user);
+
   if (!command) {
     console.error(`Command '${interaction.commandName}' not found.`);
     return;
   }
 
   try {
-    await command.execute(interaction, args);
+    await command.execute(interaction);
   } catch (error) {
     console.error(error);
     await interaction.reply('Error executing command.');
@@ -75,6 +90,7 @@ client.once(Events.ClientReady, () => {
 
 client.on('ready', () => {
   console.log(`${client.user.tag} is ready.`);
+  loadEvents();
   loadCommands();
   setBotStatus();
 });

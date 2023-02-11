@@ -18,6 +18,7 @@ const commands = [];
 
 for (const file of commandFiles) {
   const command = require(`./commands/${file}`);
+  console.log(file);
   commands.push(command.data.toJSON());
 }
 
