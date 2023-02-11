@@ -1,35 +1,39 @@
-const { REST, Routes } = require("discord.js")
+/* eslint-disable global-require */
+/* eslint-disable import/no-dynamic-require */
+/* eslint-disable no-restricted-syntax */
+const { REST, Routes } = require('discord.js');
 
-const dotenv = require('dotenv')
-dotenv.config()
-const { TOKEN, CLIENT_ID, GUILD_ID } = process.env
+const dotenv = require('dotenv');
 
-const fs = require("node:fs")
-const path = require("node:path")
-const commandsPath = path.join(__dirname, "commands")
-const commandFiles = fs.readdirSync(commandsPath).filter(file => file.endsWith(".js"))
+dotenv.config();
+const { TOKEN, CLIENT_ID, GUILD_ID } = process.env;
 
-const commands = []
+const fs = require('node:fs');
+const path = require('node:path');
+
+const commandsPath = path.join(__dirname, 'commands');
+const commandFiles = fs.readdirSync(commandsPath).filter((file) => file.endsWith('.js'));
+
+const commands = [];
 
 for (const file of commandFiles) {
-  const command = require(`./commands/${file}`)
-  commands.push(command.data.toJSON())
+  const command = require(`./commands/${file}`);
+  commands.push(command.data.toJSON());
 }
 
-const rest = new REST({ version: "10" }).setToken(TOKEN);
+const rest = new REST({ version: '10' }).setToken(TOKEN);
 
 (async () => {
   try {
-    console.log(`Resetando ${commands.length} comandos...`)
+    console.log(`Resetando ${commands.length} comandos...`);
 
-    const data = await rest.put(
+    await rest.put(
       Routes.applicationGuildCommands(CLIENT_ID, GUILD_ID),
-      { body: commands }
-    )
+      { body: commands },
+    );
 
-    console.log("Comandos registrados com sucesso!")
+    console.log('Comandos registrados com sucesso!');
+  } catch (error) {
+    console.error(error);
   }
-  catch (error) {
-    console.error(error)
-  }
-})()
+})();
