@@ -48,6 +48,27 @@ const setBotStatus = () => {
     }), 30000);
 };
 
+const handleCommand = async (interaction) => {
+  if (!interaction.isChatInputCommand()) {
+    return;
+  }
+
+  const command = client.commands.get(interaction.commandName);
+  const args = interaction.options.getString('input');
+  console.log(interaction.user);
+  if (!command) {
+    console.error(`Command '${interaction.commandName}' not found.`);
+    return;
+  }
+
+  try {
+    await command.execute(interaction, args);
+  } catch (error) {
+    console.error(error);
+    await interaction.reply('Error executing command.');
+  }
+};
+
 client.once(Events.ClientReady, () => {
   console.log(`Bot logged in as ${client.user.tag}.`);
 });
@@ -58,23 +79,6 @@ client.on('ready', () => {
   setBotStatus();
 });
 
-client.on(Events.InteractionCreate, async (interaction) => {
-  if (!interaction.isChatInputCommand()) {
-    return;
-  }
-
-  const command = client.commands.get(interaction.commandName);
-  if (!command) {
-    console.error(`Command '${interaction.commandName}' not found.`);
-    return;
-  }
-
-  try {
-    await command.execute(interaction);
-  } catch (error) {
-    console.error(error);
-    await interaction.reply('Error executing command.');
-  }
-});
+client.on(Events.InteractionCreate, handleCommand);
 
 client.login(TOKEN);
