@@ -1,7 +1,7 @@
 {
   "name": "fever-bot",
   "version": "1.0.0",
-  "description": "Bot para o discord e estudos de programação",
+  "description": "Bot para o discord e estudos de programação \n\n 🔗 https://github.com/felipe-seabra/fever-bot",
   "main": "src/index.js",
   "scripts": {
     "start": "node src/index.js",
