@@ -10,6 +10,7 @@ const botCommands = new EmbedBuilder()
     { name: '/docs', value: 'Um seletor de linguages de programação', inline: true },
     { name: '\u200B', value: '\u200B' },
     { name: '/help', value: 'Lista os comandos do Bot', inline: true },
+    { name: '/serverinfo', value: 'Mostra as informações do servidor', inline: true },
     {
       name: '/clear',
       value: 'Apaga até 50 mensagens que não tenham mais de 14 dias',
