@@ -14,7 +14,8 @@ module.exports = {
       .filter((message) => message.createdTimestamp > fourteenDaysAgo);
 
     interaction.channel.bulkDelete(messagesToDelete)
-      .then(() => interaction.reply(`Excluído ${messagesToDelete.size} mensagens.`))
+      .then(() => interaction.reply(`🗑️🗑️ Foi excluído ${messagesToDelete.size} mensagens! \n
+DÁ UMA SEGURADA AÍ!!! 🗑️🗑️`))
       .catch((error) => interaction.reply(`Ocorreu um erro ao excluir mensagens: ${error}`));
   },
 

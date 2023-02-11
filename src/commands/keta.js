@@ -6,6 +6,6 @@ module.exports = {
     .setDescription('Responde com Cala a bocona diabo!'),
 
   async execute(interaction) {
-    await interaction.reply('Cala a bocona diabo!');
+    await interaction.reply('Cala a bocona diabo!', { tts: true });
   },
 };

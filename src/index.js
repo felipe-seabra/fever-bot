@@ -1,3 +1,5 @@
+/* eslint-disable complexity */
+/* eslint-disable max-lines-per-function */
 /* eslint-disable no-return-assign */
 /* eslint-disable global-require */
 /* eslint-disable import/no-dynamic-require */
@@ -65,22 +67,29 @@ const setBotStatus = () => {
 };
 
 const handleCommand = async (interaction) => {
-  if (!interaction.isChatInputCommand()) {
+  if (!interaction || !interaction.isChatInputCommand()) {
+    console.error(`Invalid interaction received: ${interaction}`);
     return;
   }
 
-  const command = client.commands.get(interaction.commandName);
+  const { commandName } = interaction;
+  if (!commandName) {
+    console.error(`No command name found in interaction: ${interaction}`);
+    return;
+  }
 
+  const command = client.commands.get(commandName);
   if (!command) {
-    console.error(`Command '${interaction.commandName}' not found.`);
+    console.error(`Command not found: ${commandName}`);
+    await interaction.reply(`The command '${commandName}' was not found.`);
     return;
   }
 
   try {
     await command.execute(interaction);
   } catch (error) {
-    console.error(error);
-    await interaction.reply('Error executing command.');
+    console.error(`Error executing command '${commandName}': ${error}`);
+    await interaction.reply(`An error occurred while executing the '${commandName}' command.`);
   }
 };
 
