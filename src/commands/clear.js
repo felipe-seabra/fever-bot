@@ -5,7 +5,8 @@ module.exports = {
     .setName('clear')
     .setDescription('Exclui 50 mensagens'),
 
-  async execute(interaction) {
+  async execute(client, interaction) {
+    console.log(client);
     const amount = 50;
 
     const messages = await interaction.channel.messages.fetch({ limit: amount });

@@ -88,7 +88,7 @@ const handleCommand = async (interaction) => {
   }
 
   try {
-    await command.execute(interaction);
+    await command.execute(client, interaction);
   } catch (error) {
     console.error(`Error executing command '${commandName}': ${error}`);
     await interaction.reply(`An error occurred while executing the '${commandName}' command.`);
