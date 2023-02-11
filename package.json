@@ -1,7 +1,7 @@
 {
   "name": "fever-bot",
   "version": "1.0.0",
-  "description": "Bot para o discord e estudos de programação \n\n 🔗 https://github.com/felipe-seabra/fever-bot",
+  "description": "Bot para o discord e estudos de programação",
   "main": "src/index.js",
   "scripts": {
     "start": "node src/index.js",
@@ -20,7 +20,8 @@
   "homepage": "https://github.com/felipe-seabra/fever-bot#readme",
   "dependencies": {
     "discord.js": "^14.7.1",
-    "dotenv": "^16.0.3"
+    "dotenv": "^16.0.3",
+    "ytdl-core": "^4.11.2"
   },
   "devDependencies": {
     "eslint": "^8.34.0",
