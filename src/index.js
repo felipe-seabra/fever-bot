@@ -106,10 +106,6 @@ client.on('ready', () => {
   setBotStatus();
 });
 
-// client.on(Events.InteractionCreate, handleCommand);
-
-client.login(TOKEN);
-
 // Listener de interações com o bot
 client.on(Events.InteractionCreate, async (interaction) => {
   if (interaction.isStringSelectMenu()) {
@@ -130,3 +126,5 @@ client.on(Events.InteractionCreate, async (interaction) => {
   }
   await handleCommand(interaction);
 });
+
+client.login(TOKEN);
