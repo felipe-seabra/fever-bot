@@ -1,14 +1,19 @@
+/* eslint-disable no-underscore-dangle */
 const { SlashCommandBuilder } = require('discord.js');
 
 module.exports = {
   data: new SlashCommandBuilder()
     .setName('clear')
-    .setDescription('Exclui 50 mensagens'),
+    .setDescription('Exclui mensagens, selecione entre 1 e 100')
+    .addNumberOption((option) =>
+      option.setName('valor')
+        .setDescription('Quantidade para excluir')
+        .setRequired(true)),
 
   async execute(client, interaction) {
-    const amount = 50;
+    const [{ value }] = interaction.options._hoistedOptions;
 
-    const messages = await interaction.channel.messages.fetch({ limit: amount });
+    const messages = await interaction.channel.messages.fetch({ limit: value });
     const fourteenDaysAgo = Date.now() - 14 * 24 * 60 * 60 * 1000;
     const messagesToDelete = messages
       .filter((message) => message.createdTimestamp > fourteenDaysAgo);

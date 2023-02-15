@@ -91,7 +91,11 @@ const handleCommand = async (interaction) => {
     await command.execute(client, interaction);
   } catch (error) {
     console.error(`Error executing command '${commandName}': ${error}`);
-    await interaction.reply(`An error occurred while executing the '${commandName}' command.`);
+    if (commandName === 'clear') {
+      await interaction.reply('Selecione um valor entre 1 e 100');
+    } else {
+      await interaction.reply(`Erro ao executar o comando: '${commandName}'`);
+    }
   }
 };
 
