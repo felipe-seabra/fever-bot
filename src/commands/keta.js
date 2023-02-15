@@ -3,9 +3,12 @@ const { SlashCommandBuilder } = require('discord.js');
 module.exports = {
   data: new SlashCommandBuilder()
     .setName('keta')
-    .setDescription('Responde com Cala a bocona diabo!'),
+    .setDescription('Responde com um texto'),
 
   async execute(client, interaction) {
-    await interaction.reply('Cala a bocona diabo!', { tts: true });
+    await interaction.reply({
+      content: 'Cala a bocona diabo!',
+      tts: true,
+    });
   },
 };
