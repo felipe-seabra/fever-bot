@@ -2,12 +2,12 @@ const { SlashCommandBuilder } = require('discord.js');
 
 module.exports = {
   data: new SlashCommandBuilder()
-    .setName('keta')
+    .setName('kareca')
     .setDescription('Responde com um texto em TTS'),
 
   async execute(client, interaction) {
     await interaction.reply({
-      content: 'Cala a bocona diabo!',
+      content: 'Karéca nóia, mais nóia dos nóias!',
       tts: true,
     });
   },
