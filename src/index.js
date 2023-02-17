@@ -53,8 +53,9 @@ const setBotStatus = () => {
   client.user.setStatus('dnd');
 
   const data = [
-    'Programming...',
-    'type /help for more',
+    'Waiting for commands',
+    '/help for more',
+    'jajajaja',
   ];
 
   let count = 0;
