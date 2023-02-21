@@ -36,3 +36,6 @@ Inicie o servidor
 ```bash
   npm run dev
 ```
+
+
+© Desenvolvido por [Felipe Seabra](https://www.linkedin.com/in/felipe-seabra/) 
