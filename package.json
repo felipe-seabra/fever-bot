@@ -4,7 +4,7 @@
   "description": "Bot para o discord e estudos de programação",
   "main": "src/index.js",
   "scripts": {
-    "start": "node dist/deploy-commands.js && node dist/deploy-interaction.js && dist/index.js",
+    "start": "node dist/deploy-commands.js && node dist/deploy-interaction.js && node dist/index.js",
     "build": "babel src -d dist",
     "dev": "node src/deploy-commands.js && node src/deploy-interaction.js && nodemon --ignore coverage --inspect=0.0.0.0:9229 src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -25,11 +25,11 @@
     "ytdl-core": "^4.11.2"
   },
   "devDependencies": {
-    "eslint": "^8.34.0",
-    "eslint-config-trybe-backend": "^2.1.0",
-    "nodemon": "^2.0.20",
     "@babel/cli": "^7.16.0",
     "@babel/core": "^7.16.0",
-    "@babel/preset-env": "^7.16.0"
+    "@babel/preset-env": "^7.16.0",
+    "eslint": "^8.34.0",
+    "eslint-config-trybe-backend": "^2.1.0",
+    "nodemon": "^2.0.20"
   }
 }
