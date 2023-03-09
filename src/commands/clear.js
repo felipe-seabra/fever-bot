@@ -10,7 +10,7 @@ module.exports = {
         .setDescription('Quantidade para excluir')
         .setRequired(true)),
 
-  async execute(client, interaction) {
+  async execute(_client, interaction) {
     const [{ value }] = interaction.options._hoistedOptions;
 
     const messages = await interaction.channel.messages.fetch({ limit: value });

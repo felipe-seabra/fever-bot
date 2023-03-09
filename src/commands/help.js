@@ -23,7 +23,7 @@ module.exports = {
     .setName('help')
     .setDescription('Listar comandos do Bot'),
 
-  async execute(client, interaction) {
+  async execute(_client, interaction) {
     await interaction.reply({ embeds: [botCommands] });
   },
 };

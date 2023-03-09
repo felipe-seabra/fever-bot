@@ -5,7 +5,7 @@ module.exports = {
     .setName('gordo')
     .setDescription('Responde com um texto em TTS'),
 
-  async execute(client, interaction) {
+  async execute(_client, interaction) {
     await interaction.reply({
       content: 'A PORRA DO GORDO NÃO CALA A BOCA!',
       tts: true,

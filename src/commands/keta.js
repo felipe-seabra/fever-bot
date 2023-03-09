@@ -5,7 +5,7 @@ module.exports = {
     .setName('keta')
     .setDescription('Responde com um texto em TTS'),
 
-  async execute(client, interaction) {
+  async execute(_client, interaction) {
     await interaction.reply({
       content: 'Cala a bocona diabo!',
       tts: true,

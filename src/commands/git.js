@@ -67,7 +67,7 @@ module.exports = {
     .setName('git')
     .setDescription('Relembrar comandos do Git'),
 
-  async execute(client, interaction) {
+  async execute(_client, interaction) {
     await interaction.reply({ embeds: [exampleEmbed] });
   },
 };
