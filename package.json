@@ -7,7 +7,7 @@
     "node": "16"
   },
   "scripts": {
-    "start": "node dist/deploy-commands.js && node dist/deploy-interaction.js && nodemon dist/index.js",
+    "start": "node dist/deploy-commands.js && node dist/deploy-interaction.js && node dist/index.js",
     "build": "babel src -d dist",
     "dev": "node src/deploy-commands.js && node src/deploy-interaction.js && nodemon --ignore coverage --inspect=0.0.0.0:9229 src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
