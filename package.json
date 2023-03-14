@@ -3,9 +3,6 @@
   "version": "1.0.0",
   "description": "Bot para o discord e estudos de programação",
   "main": "src/index.js",
-  "engines": {
-    "node": "16"
-  },
   "scripts": {
     "start": "node dist/deploy-commands.js && node dist/deploy-interaction.js && node dist/index.js",
     "build": "babel src -d dist",
