@@ -36,6 +36,11 @@ Inicie o servidor
 ```bash
   npm run dev
 ```
+Se desejar usar o Docker
+
+```bash
+  docker compose up -d
+```
 
 
 © Desenvolvido por [Felipe Seabra](https://www.linkedin.com/in/felipe-seabra/) 
