@@ -21,4 +21,6 @@ COPY --from=builder /build /build
 
 RUN npm ci --omit=dev
 
+EXPOSE 3001 
+
 ENTRYPOINT [ "npm", "run", "prod" ]
