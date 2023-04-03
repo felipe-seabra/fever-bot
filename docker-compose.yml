@@ -1,0 +1,14 @@
+version: "3"
+
+services:
+  meme_bot:
+    container_name: meme_bot
+    build: ./
+    ports:
+      - 3001:3001
+    command: dev
+    volumes:
+      - ./src:/src
+    restart: always
+    env_file:
+      - .env
