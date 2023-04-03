@@ -49,12 +49,16 @@ client.on(Events.InteractionCreate, async (interaction) => {
   const commandName = interaction.commandName;
   const command = client.commands.get(commandName);
   
-  if (!command) return;
+  if (!command) {
+    console.error(`Command not found: ${commandName}`);
+    await interaction.reply(`The command '${commandName}' was not found.`);
+    return;
+  }
   
   try {
     await command.execute(client, interaction);
   } catch (error) {
-    console.error(error);
+    console.error(`Error executing command '${commandName}': ${error}`);
     await interaction.reply({
       content: "Houve um erro ao executar este comando.",
       ephemeral: true,
