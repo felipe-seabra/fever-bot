@@ -1,6 +1,8 @@
 const { SlashCommandBuilder, PermissionsBitField } = require('discord.js');
-require('dotenv').config();
 const { Configuration, OpenAIApi } = require('openai');
+
+const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
+const OPENAI_ORGANIZATION = process.env.OPENAI_ORGANIZATION;
 
 module.exports = {
   data: new SlashCommandBuilder()
@@ -22,8 +24,8 @@ module.exports = {
     const [{ value }] = interaction.options._hoistedOptions;
 
     const config = new Configuration({
-      apiKey: process.env.OPENAI_API_KEY,
-      organization: process.env.OPENAI_ORGANIZATION,
+      apiKey: OPENAI_API_KEY,
+      organization: OPENAI_ORGANIZATION,
     });
 
     const openai = new OpenAIApi(config);
