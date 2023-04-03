@@ -1,7 +1,3 @@
-/* eslint-disable sonarjs/cognitive-complexity */
-/* eslint-disable camelcase */
-/* eslint-disable no-underscore-dangle */
-/* eslint-disable max-lines-per-function */
 const { SlashCommandBuilder, PermissionsBitField } = require('discord.js');
 require('dotenv').config();
 const { Configuration, OpenAIApi } = require('openai');
