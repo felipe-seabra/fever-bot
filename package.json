@@ -1,0 +1,29 @@
+{
+  "name": "fever-bot",
+  "version": "1.0.0",
+  "description": "Bot para estudos de programação",
+  "main": "src/index.js",
+  "scripts": {
+    "build": "rm -rf build && esbuild src/*.js src/**/*.js --platform=node --format=cjs  --outdir=build --outbase=src",
+    "start": "npm run build && node -r dotenv/config build/index.js",
+    "dev": "nodemon",
+    "prod": "node build/index.js",
+    "test": "mocha -r esbuild-runner/register ./tests/*.spec.js --exit"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/felipe-seabra/fever-bot.git"
+  },
+  "keywords": [
+    "discord",
+    "bot",
+    "javascript",
+    "nodejs"
+  ],
+  "author": "Felipe Seabra",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/felipe-seabra/fever-bot/issues"
+  },
+  "homepage": "https://github.com/felipe-seabra/fever-bot#readme"
+}
