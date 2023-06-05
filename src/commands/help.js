@@ -5,7 +5,7 @@ const botCommands = new EmbedBuilder()
   .setTitle('Comandos do Bot')
   .addFields(
     { name: '\u200B', value: '\u200B' },
-    { name: '/gpt', value: 'Faça uma pergunta para o Fever AI', inline: true },
+    // { name: '/gpt', value: 'Faça uma pergunta para o Fever AI', inline: true },
     { name: '/git', value: 'Lista os comandos mais utilizados no GitHub', inline: true },
     { name: '/docs', value: 'Um seletor de linguages de programação', inline: true },
     { name: '\u200B', value: '\u200B' },
