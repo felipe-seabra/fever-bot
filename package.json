@@ -7,9 +7,9 @@
     "build": "rm -rf build && esbuild src/*.js src/**/*.js --platform=node --format=cjs  --outdir=build --outbase=src",
     "start": "node -r dotenv/config build/index.js",
     "dev": "nodemon",
-    "prod": "node build/index.js",
+    "prod": "node dotenv/config build/index.js",
     "test": "mocha -r esbuild-runner/register ./tests/*.spec.js --exit",
-    "vercel-build": "rm -rf build && esbuild src/*.js src/**/*.js --platform=node --format=cjs  --outdir=build --outbase=src"
+    "vercel-build": "npm run prod"
   },
   "repository": {
     "type": "git",
