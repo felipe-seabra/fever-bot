@@ -9,7 +9,7 @@
     "dev": "nodemon",
     "prod": "node dotenv/config build/index.js",
     "test": "mocha -r esbuild-runner/register ./tests/*.spec.js --exit",
-    "vercel-build": "npm i && npm rum build && npm run start"
+    "vercel-build": "rm -rf build && esbuild src/*.js src/**/*.js --platform=node --format=cjs  --outdir=build --outbase=src"
   },
   "repository": {
     "type": "git",
