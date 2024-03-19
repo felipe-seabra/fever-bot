@@ -5,7 +5,7 @@
   "main": "src/index.js",
   "scripts": {
     "build": "rm -rf build && esbuild src/*.js src/**/*.js --platform=node --format=cjs  --outdir=build --outbase=src",
-    "start": "node -r dotenv/config build/index.js",
+    "start": "node build/index.js",
     "dev": "nodemon",
     "prod": "node dotenv/config build/index.js",
     "test": "mocha -r esbuild-runner/register ./tests/*.spec.js --exit",
